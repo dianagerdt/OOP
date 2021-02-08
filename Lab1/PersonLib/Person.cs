@@ -176,7 +176,7 @@ namespace PersonLibrary
         /// <param name="age">Возраст для проверки</param>
         /// <returns>Верно/неверно в зависимости от результата
         /// проверки</returns>
-        public static bool IsAgeIsCorrect(string age)
+        public static bool IsAgeCorrect(string age)
         {
             var regex = new Regex("^[0-9]+$");
             if (!regex.IsMatch(age))
@@ -198,7 +198,7 @@ namespace PersonLibrary
                 throw new Exception(
                     "Expression is null or empty! ");
             }
-            else if (!IsAgeIsCorrect(number))
+            else if (!IsAgeCorrect(number))
             {
                 throw new Exception("Age must contain " +
                     "only integer values in range 0-125! ");

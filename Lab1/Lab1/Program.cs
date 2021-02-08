@@ -29,7 +29,7 @@ namespace Lab1
             {
                 new Person("Bender", "Rodriguez", 30, Sex.Male),
                 new Person("Philip junior", "Fry", 28, Sex.Male),
-                new Person("LISA", "SIMPSON", 10, Sex.Female),
+                new Person("Sean", "Diaz", 10, Sex.Female),
             };
 
             var arrayTwo = new Person[]
@@ -91,10 +91,15 @@ namespace Lab1
             Person newPerson = PersonFromKeyboard();
             listTwo.AddPerson(newPerson);
             ShowListOfPersons(listOne, listTwo);
+            Console.WriteLine();
+            Console.WriteLine("Step 8. Add a random person " +
+                "to the second list...");
+            Person randPerson = RandomPerson.GetRandomPerson();
+            listTwo.AddPerson(randPerson);
+            ShowListOfPersons(listOne, listTwo);
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
-            Console.WriteLine("Step 6. Let's add to the first list " +
-                "a new person from keyboard...");
-
         }
 
         /// <summary>
