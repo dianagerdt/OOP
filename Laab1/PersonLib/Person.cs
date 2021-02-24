@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace PersonLibrary
+namespace PersonLib
 {
     /// <summary>
     /// Класс Человек 

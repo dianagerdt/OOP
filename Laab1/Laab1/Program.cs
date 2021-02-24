@@ -1,7 +1,7 @@
 ﻿using System;
-using PersonLibrary;
+using PersonLib;
 
-namespace Lab1
+namespace Laab1
 {
     /// <summary>
     /// Основной класс  
@@ -77,7 +77,7 @@ namespace Lab1
                 "delete the same person in the 2nd list!");
             Console.WriteLine();
             Console.ReadKey();
-            
+
             Console.WriteLine("Step 6. Clearing the second list...");
             listTwo.DeleteAllPeople();
             ShowListOfPersons(listOne, listTwo);
@@ -144,7 +144,7 @@ namespace Lab1
             int keyboardSex = CheckCorrectSex("Sex: 0 - Male," +
                 " 1 - Female -> ");
             Sex sex = Sex.Female;
-            while(true)
+            while (true)
             {
                 try
                 {

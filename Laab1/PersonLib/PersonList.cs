@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace PersonLibrary
+namespace PersonLib
 {
     /// <summary>
     /// Класс Список персон
@@ -28,7 +30,7 @@ namespace PersonLibrary
             {
                 _personArray[i] = temporaryArray[i];
             }
-            
+
             _personArray[temporaryArray.Length] = person;
         }
 
@@ -64,13 +66,13 @@ namespace PersonLibrary
             var temporaryArray = _personArray;
             var temporaryIndex = 0;
             _personArray = new Person[temporaryArray.Length - 1];
-            
+
             for (int i = 0; i < temporaryArray.Length; i++)
             {
                 if (i != index)
                 {
                     _personArray[temporaryIndex] = temporaryArray[i];
-                    temporaryIndex ++;
+                    temporaryIndex++;
                 }
             }
         }
@@ -103,7 +105,7 @@ namespace PersonLibrary
             Person[] truePersons = new Person[0];
             for (int i = 0; i < _personArray.Length; i++)
             {
-                if((_personArray[i].Name != name) && (_personArray[i].Surname != surname))
+                if ((_personArray[i].Name != name) && (_personArray[i].Surname != surname))
                 {
                     Array.Resize(ref truePersons, truePersons.Length + 1);
                     truePersons[truePersons.Length - 1] = _personArray[i];
