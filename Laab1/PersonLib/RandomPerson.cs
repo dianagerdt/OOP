@@ -16,31 +16,29 @@ namespace PersonLib
         {
             string[] _maleNames = new string[]
             {
-           "John", "Carl", "Rick", "Mattew",
-           "Nicholas", "Robert", "Samuel",
-           "Stan", "Kenny", "Severus", "Jake"
+                "John", "Carl", "Rick", "Mattew",
+                "Nicholas", "Robert", "Samuel",
+                "Stan", "Kenny", "Severus", "Jake"
             };
 
             string[] _femaleNames = new string[]
             {
-           "Lyla", "Samanta", "Kate", "Kira",
-           "Amelia", "Julia", "Anastasia",
-           "Sindy", "Luna", "Violet", "Anna"
+                "Lyla", "Samanta", "Kate", "Kira",
+                "Amelia", "Julia", "Anastasia",
+                "Sindy", "Luna", "Violet", "Anna"
             };
 
             string[] _allSurnames = new string[]
             {
-           "Potter", "Granger", "Black", "Malfoy",
-           "Weasley", "Dursley", "Riddle",
-           "Krum", "Snape", "Lovegood", "Lestrange"
+                "Potter", "Granger", "Black", "Malfoy",
+                "Weasley", "Dursley", "Riddle",
+                "Krum", "Snape", "Lovegood", "Lestrange"
             };
 
             Random random = new Random();
-            string name;
-            string surname;
-            int age;
+            
+            string name;            
             Sex sex = (Sex)random.Next(0, 2);
-
             switch (sex)
             {
                 case Sex.Male:
@@ -53,8 +51,9 @@ namespace PersonLib
                     return new Person("Default", "Person", 0, Sex.Male);
             }
 
-            surname = _allSurnames[random.Next(_allSurnames.Length)];
-            age = random.Next(0, 125);
+            string surname = _allSurnames[random.Next(_allSurnames.Length)];
+            //TODO: Global const
+            int age = random.Next(0, Person.AgeMax);
             return new Person(name, surname, age, sex);
         }
 

@@ -33,7 +33,7 @@ namespace PersonLib
             {
                 return _name;
             }
-            set
+            private set
             {
                 CheckingNameAndSurname(value);
                 _name = ConvertToRightRegister(value);
@@ -49,12 +49,16 @@ namespace PersonLib
             {
                 return _surname;
             }
-            set
+            private set
             {
                 CheckingNameAndSurname(value);
                 _surname = ConvertToRightRegister(value);
             }
         }
+        /// <summary>
+        /// Максимальный возраст человека
+        /// </summary>
+        public const int AgeMax = 125;
 
         /// <summary>
         /// Возраст 
@@ -65,26 +69,23 @@ namespace PersonLib
             {
                 return _age;
             }
-            set
+            private set
             {
-                if (value < 0 || value > 125)
+                //TODO:
+                if (value < 0 || value > AgeMax)
                 {
                     throw new Exception(
-                        "The age must be between 0 and 125 years!");
+                        $"The age must be between 0 and {AgeMax} years!");
                 }
                 _age = value;
             }
         }
 
+        //TODO: Public set?
         /// <summary>
         /// Пол 
         /// </summary>
-        public Sex Sex { get; set; }
-
-        /// <summary>
-        /// Конструктор по умолчанию
-        /// </summary>
-        public Person() : this("Diana", "Gerdt", 93, Sex.Female) { }
+        public Sex Sex { get; private set; }
 
         /// <summary>
         /// Констукрутор класса
@@ -116,7 +117,7 @@ namespace PersonLib
             else if (!IsNameAndSurnameCorrect(value))
             {
                 throw new FormatException("Name or surname must contain " +
-                    "only Cyrillic or Latin symbols! ");
+                    "only Cyrillic or Latin symbols!");
             }
             else
             {
@@ -134,11 +135,9 @@ namespace PersonLib
         {
             var regex = new Regex("^([A-Za-z]|[А-Яа-я])+(((-| )?([A-Za-z]|" +
                 "[А-Яа-я])+))?$");
-            if (!regex.IsMatch(value))
-            {
-                return false;
-            }
-            return true;
+            
+            //TODO: 
+            return regex.IsMatch(value);
         }
 
         /// <summary>
@@ -179,11 +178,8 @@ namespace PersonLib
         public static bool IsAgeCorrect(string age)
         {
             var regex = new Regex("^[0-9]+$");
-            if (!regex.IsMatch(age))
-            {
-                return false;
-            }
-            return true;
+            //TODO: 
+            return regex.IsMatch(age);
         }
 
         /// <summary>
@@ -198,15 +194,16 @@ namespace PersonLib
                 throw new Exception(
                     "Expression is null or empty! ");
             }
+            //TODO: To global const
             else if (!IsAgeCorrect(number))
             {
                 throw new Exception("Age must contain " +
-                    "only integer values in range 0-125! ");
+                    $"only integer values in range 0-{AgeMax}!");
             }
-            else if (Convert.ToInt32(number) < 0 || Convert.ToInt32(number) > 125)
+            else if (Convert.ToInt32(number) < 0 || Convert.ToInt32(number) > AgeMax)
             {
                 throw new Exception("The age must be " +
-                    "between 0 and 125 years! ");
+                    $"between 0 and {AgeMax} years!");
             }
             else
             {
@@ -221,13 +218,11 @@ namespace PersonLib
         /// <returns>Корректное значение</returns>
         public static bool IsSexCorrect(string sex)
         {
+            if (Convert.ToInt32(sex) < 0 || Convert.ToInt32(sex) > 1)
             {
-                if (Convert.ToInt32(sex) < 0 || Convert.ToInt32(sex) > 1)
-                {
-                    return false;
-                }
-                return true;
+                return false;
             }
+            return true;            
         }
 
         /// <summary>
@@ -240,7 +235,7 @@ namespace PersonLib
             if (number == string.Empty)
             {
                 throw new Exception(
-                    "Expression is null or empty! ");
+                    "Expression is null or empty!");
             }
             else if (!IsSexCorrect(number))
             {
@@ -253,10 +248,11 @@ namespace PersonLib
             }
         }
 
+        //TODO: Rename
         /// <summary>
         /// Вывод информации о человеке
         /// </summary>
-        public string GetInfo
+        public string Info
         {
             get
             {

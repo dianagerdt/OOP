@@ -27,7 +27,7 @@ namespace Laab1
 
             var arrayOne = new Person[]
             {
-                new Person("Bender", "Rodriguez", 30, Sex.Male),
+                new Person("Bender", "Rodriguez", 40, Sex.Male),
                 new Person("Philip junior", "Fry", 28, Sex.Male),
                 new Person("Sean", "Diaz", 10, Sex.Female),
             };
@@ -52,7 +52,7 @@ namespace Laab1
             Console.WriteLine();
 
             Console.WriteLine("Step 3. Adding a new person to the first list... ");
-            listOne.AddPerson(new Person("Doctor", "Zoidberg", 40, Sex.Male));
+            listOne.AddPerson(new Person("Doctor", "Zoidberg", 98, Sex.Male));
             ShowListOfPersons(listOne, listTwo);
             Console.WriteLine();
             Console.WriteLine("A new person has been successfully added" +
@@ -124,7 +124,7 @@ namespace Laab1
 
                 for (int j = 0; j < personLists[i].NumberOfPersons; j++)
                 {
-                    Console.WriteLine(personLists[i].FindByIndex(j).GetInfo);
+                    Console.WriteLine(personLists[i].FindByIndex(j).Info);
                 }
             }
             Console.ReadKey();
@@ -186,7 +186,7 @@ namespace Laab1
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"Error: {e.Message}Try again.");
+                    Console.WriteLine($"Error: {e.Message} Try again.");
                 }
             }
         }
@@ -207,7 +207,7 @@ namespace Laab1
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"Error: {e.Message}Try again.");
+                    Console.WriteLine($"Error: {e.Message} Try again.");
                 }
             }
         }

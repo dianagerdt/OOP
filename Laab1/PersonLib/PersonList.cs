@@ -151,7 +151,6 @@ namespace PersonLib
             else
             {
                 throw new Exception("The index you requested " +
-
                     "does not exist!");
             }
         }
