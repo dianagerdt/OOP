@@ -88,8 +88,7 @@ namespace Laab1
             Console.WriteLine("Step 7. Let's add a new person " +
                 "to the second list from keyboard...");
             Console.WriteLine();
-            Person newPerson = PersonFromKeyboard();
-            listTwo.AddPerson(newPerson);
+            listTwo.AddPerson(AddConsolePerson.NewPerson());
             ShowListOfPersons(listOne, listTwo);
             Console.WriteLine();
 
@@ -128,109 +127,6 @@ namespace Laab1
                 }
             }
             Console.ReadKey();
-        }
-
-        /// <summary>
-        /// Чтение персоны с клавиатуры
-        /// </summary>
-        /// <returns>//Возвращает новую персону</returns>
-        public static Person PersonFromKeyboard()
-        {
-            Console.WriteLine("Enter person details...");
-            Console.ReadKey();
-            var name = CheckCorrectName("Name: ");
-            var surname = CheckCorrectName("Surname: ");
-            int age = CheckCorrectAge("Age: ");
-            int keyboardSex = CheckCorrectSex("Sex: 0 - Male," +
-                " 1 - Female -> ");
-            Sex sex = Sex.Female;
-            while (true)
-            {
-                try
-                {
-                    switch (Convert.ToInt32(keyboardSex))
-                    {
-                        case 0:
-                            sex = Sex.Male;
-                            break;
-                        case 1:
-                            sex = Sex.Female;
-                            break;
-                    }
-                    break;
-                }
-                catch (ArgumentOutOfRangeException e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-            }
-            Console.WriteLine();
-            Console.WriteLine("A new person have been successfully created!");
-            return new Person(name, surname, age, sex);
-
-        }
-
-        /// <summary>
-        /// Проверка имени и фамилиии
-        /// </summary>
-        /// <param name="value">Информация для пользователя</param>
-        /// <returns>Корректные фамилию и имя</returns>
-        public static string CheckCorrectName(string value)
-        {
-            while (true)
-            {
-                try
-                {
-                    Console.Write(value);
-                    return Person.CheckingNameAndSurname(Console.ReadLine());
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Error: {e.Message} Try again.");
-                }
-            }
-        }
-
-        /// <summary>
-        /// Проверка корректности возраста
-        /// </summary>
-        /// <param name="value">Информация для пользователя</param>
-        /// <returns>Значение возраста</returns>
-        public static int CheckCorrectAge(string value)
-        {
-            while (true)
-            {
-                try
-                {
-                    Console.Write(value);
-                    return Person.CheckingAgeFromKey(Console.ReadLine());
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Error: {e.Message} Try again.");
-                }
-            }
-        }
-
-        /// <summary>
-        /// Проверка корректности ввода пола
-        /// </summary>
-        /// <param name="value">Информация для пользователя</param>
-        /// <returns>Значение для определения пола</returns>
-        public static int CheckCorrectSex(string value)
-        {
-            while (true)
-            {
-                try
-                {
-                    Console.Write(value);
-                    return Person.CheckingSexFromKey(Console.ReadLine());
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Error: {e.Message} Try again.");
-                }
-            }
         }
     }
 }

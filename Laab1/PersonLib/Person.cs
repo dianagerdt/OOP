@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace PersonLib
 {
@@ -33,7 +35,7 @@ namespace PersonLib
             {
                 return _name;
             }
-            private set
+            set
             {
                 CheckingNameAndSurname(value);
                 _name = ConvertToRightRegister(value);
@@ -49,12 +51,13 @@ namespace PersonLib
             {
                 return _surname;
             }
-            private set
+            set
             {
                 CheckingNameAndSurname(value);
                 _surname = ConvertToRightRegister(value);
             }
         }
+        //TODO: Global const +
         /// <summary>
         /// Максимальный возраст человека
         /// </summary>
@@ -69,23 +72,17 @@ namespace PersonLib
             {
                 return _age;
             }
-            private set
+            set
             {
-                //TODO:
-                if (value < 0 || value > AgeMax)
-                {
-                    throw new Exception(
-                        $"The age must be between 0 and {AgeMax} years!");
-                }
+                CheckingAge(value);
                 _age = value;
             }
         }
 
-        //TODO: Public set?
         /// <summary>
         /// Пол 
         /// </summary>
-        public Sex Sex { get; private set; }
+        public Sex Sex { get; set; }
 
         /// <summary>
         /// Констукрутор класса
@@ -101,6 +98,11 @@ namespace PersonLib
             Age = age;
             Sex = sex;
         }
+
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
+        public Person() : this("Diana", "Negerdt", 100, Sex.Female) { }
 
         /// <summary>
         /// Проверка имени и фамилии
@@ -131,12 +133,12 @@ namespace PersonLib
         /// <param name="value">Имя или фамилия для проверки</param>
         /// <returns>Верно/неверно в зависимости от результата
         /// проверки</returns>
-        public static bool IsNameAndSurnameCorrect(string value)
+        private static bool IsNameAndSurnameCorrect(string value)
         {
             var regex = new Regex("^([A-Za-z]|[А-Яа-я])+(((-| )?([A-Za-z]|" +
                 "[А-Яа-я])+))?$");
-            
-            //TODO: 
+
+            //TODO: +
             return regex.IsMatch(value);
         }
 
@@ -178,7 +180,7 @@ namespace PersonLib
         public static bool IsAgeCorrect(string age)
         {
             var regex = new Regex("^[0-9]+$");
-            //TODO: 
+            //TODO: +
             return regex.IsMatch(age);
         }
 
@@ -187,27 +189,27 @@ namespace PersonLib
         /// </summary>
         /// <param name="number">Возраст для проверки</param>
         /// <returns>Корректный возраст</returns>
-        public static int CheckingAgeFromKey(string number)
+        public static int CheckingAge(int number)
         {
-            if (number == string.Empty)
+            if (Convert.ToString(number) == string.Empty)
             {
                 throw new Exception(
                     "Expression is null or empty! ");
             }
-            //TODO: To global const
-            else if (!IsAgeCorrect(number))
+            //TODO: To global const +
+            else if (!IsAgeCorrect(Convert.ToString(number)))
             {
                 throw new Exception("Age must contain " +
                     $"only integer values in range 0-{AgeMax}!");
             }
-            else if (Convert.ToInt32(number) < 0 || Convert.ToInt32(number) > AgeMax)
+            else if (number < 0 || number > AgeMax)
             {
                 throw new Exception("The age must be " +
                     $"between 0 and {AgeMax} years!");
             }
             else
             {
-                return Convert.ToInt32(number);
+                return number;
             }
         }
 
@@ -218,11 +220,9 @@ namespace PersonLib
         /// <returns>Корректное значение</returns>
         public static bool IsSexCorrect(string sex)
         {
-            if (Convert.ToInt32(sex) < 0 || Convert.ToInt32(sex) > 1)
-            {
-                return false;
-            }
-            return true;            
+            var regex = new Regex("^[0-1]$");
+            //TODO: +
+            return regex.IsMatch(sex);
         }
 
         /// <summary>
@@ -230,7 +230,7 @@ namespace PersonLib
         /// </summary>
         /// <param name="number">Цифра пола для проверки</param>
         /// <returns>Корректная цифра для определения пола</returns>
-        public static int CheckingSexFromKey(string number)
+        public static int CheckingSex(string number)
         {
             if (number == string.Empty)
             {
@@ -248,7 +248,7 @@ namespace PersonLib
             }
         }
 
-        //TODO: Rename
+        //TODO: Rename +
         /// <summary>
         /// Вывод информации о человеке
         /// </summary>
