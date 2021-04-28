@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace PersonLibrary
+namespace PersonLib
 {
     public class RandomPerson
     {
@@ -10,36 +12,34 @@ namespace PersonLibrary
         /// Генерирует случайного человека
         /// </summary>
         /// <returns>Персона со случайными данными</returns>
-        public static Person GetRandomPerson()
+        public static PersonBase GetRandomPerson()
         {
             string[] _maleNames = new string[]
             {
-           "John", "Carl", "Rick", "Mattew",
-           "Nicholas", "Robert", "Samuel",
-           "Stan", "Kenny", "Severus", "Jake"
+                "John", "Carl", "Rick", "Mattew",
+                "Nicholas", "Robert", "Samuel",
+                "Stan", "Kenny", "Severus", "Jake"
             };
 
             string[] _femaleNames = new string[]
             {
-           "Lyla", "Samanta", "Kate", "Kira",
-           "Amelia", "Julia", "Anastasia",
-           "Sindy", "Luna", "Violet", "Anna"
+                "Lyla", "Samanta", "Kate", "Kira",
+                "Amelia", "Julia", "Anastasia",
+                "Sindy", "Luna", "Violet", "Anna"
             };
 
             string[] _allSurnames = new string[]
             {
-           "Potter", "Granger", "Black", "Malfoy",
-           "Weasley", "Dursley", "Riddle",
-           "Krum", "Snape", "Lovegood", "Lestrange"
+                "Potter", "Granger", "Black", "Malfoy",
+                "Weasley", "Dursley", "Riddle",
+                "Krum", "Snape", "Lovegood", "Lestrange"
             };
 
             Random random = new Random();
-            string name;
-            string surname;
-            int age;
-            Sex sex = (Sex)random.Next(0, 2);
 
-            switch(sex)
+            string name;
+            Sex sex = (Sex)random.Next(0, 2);
+            switch (sex)
             {
                 case Sex.Male:
                     name = _maleNames[random.Next(_maleNames.Length)];
@@ -47,14 +47,15 @@ namespace PersonLibrary
                 case Sex.Female:
                     name = _femaleNames[random.Next(_femaleNames.Length)];
                     break;
-                default: 
-                    return new Person ("Default", "Person", 0, Sex.Male);
+                default:
+                    return new PersonBase("Default", "Person", 0, Sex.Male);
             }
 
-            surname = _allSurnames[random.Next(_allSurnames.Length)];
-            age = random.Next(0, 125);
-            return new Person(name, surname, age, sex);
+            string surname = _allSurnames[random.Next(_allSurnames.Length)];
+
+            int age = random.Next(0, PersonBase.MaxAge);
+            return new PersonBase(name, surname, age, sex);
         }
-        
+
     }
 }

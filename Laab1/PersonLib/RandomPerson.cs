@@ -52,7 +52,7 @@ namespace PersonLib
             }
 
             string surname = _allSurnames[random.Next(_allSurnames.Length)];
-            //TODO: Global const +
+
             int age = random.Next(0, Person.AgeMax);
             return new Person(name, surname, age, sex);
         }

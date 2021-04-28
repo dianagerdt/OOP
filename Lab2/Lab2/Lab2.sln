@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab2", "Lab2\Lab2.csproj", "{D61522A0-2888-41CF-AAC4-30CE554904C1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7AFDF0F6-3E46-4360-8EB6-511A174A63AA} = {7AFDF0F6-3E46-4360-8EB6-511A174A63AA}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonLib", "..\PersonLib\PersonLib.csproj", "{7AFDF0F6-3E46-4360-8EB6-511A174A63AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D61522A0-2888-41CF-AAC4-30CE554904C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D61522A0-2888-41CF-AAC4-30CE554904C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D61522A0-2888-41CF-AAC4-30CE554904C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D61522A0-2888-41CF-AAC4-30CE554904C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AFDF0F6-3E46-4360-8EB6-511A174A63AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AFDF0F6-3E46-4360-8EB6-511A174A63AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AFDF0F6-3E46-4360-8EB6-511A174A63AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AFDF0F6-3E46-4360-8EB6-511A174A63AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00BAE205-FE9E-4048-AFD9-4B765BC954EA}
+	EndGlobalSection
+EndGlobal

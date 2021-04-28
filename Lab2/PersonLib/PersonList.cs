@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace PersonLibrary
+namespace PersonLib
 {
     /// <summary>
     /// Класс Список персон
@@ -12,23 +14,23 @@ namespace PersonLibrary
         /// <summary>
         /// Список людей
         /// </summary>
-        private Person[] _personArray = new Person[0];
+        private PersonBase[] _personArray = new PersonBase[0];
 
         /// <summary>
         /// Добавление персоны в список
         /// </summary>
         /// <param name="person">Экземпляр класса персона</param>
-        public void AddPerson(Person person)
+        public void AddPerson(PersonBase person)
         {
             var temporaryArray = _personArray;
 
-            _personArray = new Person[temporaryArray.Length + 1];
+            _personArray = new PersonBase[temporaryArray.Length + 1];
 
             for (int i = 0; i < temporaryArray.Length; i++)
             {
                 _personArray[i] = temporaryArray[i];
             }
-            
+
             _personArray[temporaryArray.Length] = person;
         }
 
@@ -44,7 +46,7 @@ namespace PersonLibrary
         /// Удаление персоны из списка
         /// </summary>
         /// <param name="person">Экземпляр класса Персона</param>
-        public void DeletePersonByIndex(Person person)
+        public void DeletePersonByIndex(PersonBase person)
         {
             DeleteByIndex(GetIndexOfPerson(person));
         }
@@ -63,14 +65,14 @@ namespace PersonLibrary
             }
             var temporaryArray = _personArray;
             var temporaryIndex = 0;
-            _personArray = new Person[temporaryArray.Length - 1];
-            
+            _personArray = new PersonBase[temporaryArray.Length - 1];
+
             for (int i = 0; i < temporaryArray.Length; i++)
             {
                 if (i != index)
                 {
                     _personArray[temporaryIndex] = temporaryArray[i];
-                    temporaryIndex ++;
+                    temporaryIndex++;
                 }
             }
         }
@@ -80,7 +82,7 @@ namespace PersonLibrary
         /// </summary>
         /// <param name="person">Экземпляр класса Персона</param>
         /// <returns>Индекс экземпляра класса</returns>
-        public int GetIndexOfPerson(Person person)
+        public int GetIndexOfPerson(PersonBase person)
         {
             for (int index = 0; index < _personArray.Length; index++)
             {
@@ -100,10 +102,10 @@ namespace PersonLibrary
         /// <param name="person">Экземпляр класса Персона</param>
         public void DeletePersonByName(string name, string surname)
         {
-            Person[] truePersons = new Person[0];
+            PersonBase[] truePersons = new PersonBase[0];
             for (int i = 0; i < _personArray.Length; i++)
             {
-                if((_personArray[i].Name != name) && (_personArray[i].Surname != surname))
+                if ((_personArray[i].Name != name) && (_personArray[i].Surname != surname))
                 {
                     Array.Resize(ref truePersons, truePersons.Length + 1);
                     truePersons[truePersons.Length - 1] = _personArray[i];
@@ -127,9 +129,9 @@ namespace PersonLibrary
         /// Добавление нескольких людей
         /// </summary>
         /// <param name="persons">Массив людей</param>
-        public void AddArrayOfPeople(Person[] persons)
+        public void AddArrayOfPeople(PersonBase[] persons)
         {
-            foreach (Person person in persons)
+            foreach (PersonBase person in persons)
             {
                 AddPerson(person);
             }
@@ -140,7 +142,7 @@ namespace PersonLibrary
         /// </summary>
         /// <param name="index">Индекс человека</param>
         /// <returns>возвращает значение по указанному индексу</returns> 
-        public Person FindByIndex(int index)
+        public PersonBase FindByIndex(int index)
         {
             if (index >= 0 && index < _personArray.Length)
             {
@@ -149,7 +151,6 @@ namespace PersonLibrary
             else
             {
                 throw new Exception("The index you requested " +
-
                     "does not exist!");
             }
         }

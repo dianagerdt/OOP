@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Linq;
 
 namespace PersonLib
 {
@@ -57,7 +55,7 @@ namespace PersonLib
                 _surname = ConvertToRightRegister(value);
             }
         }
-        //TODO: Global const +
+
         /// <summary>
         /// Максимальный возраст человека
         /// </summary>
@@ -138,7 +136,6 @@ namespace PersonLib
             var regex = new Regex("^([A-Za-z]|[А-Яа-я])+(((-| )?([A-Za-z]|" +
                 "[А-Яа-я])+))?$");
 
-            //TODO: +
             return regex.IsMatch(value);
         }
 
@@ -172,37 +169,13 @@ namespace PersonLib
         }
 
         /// <summary>
-        /// Булевая проверка возраста на корректность ввода
-        /// </summary>
-        /// <param name="age">Возраст для проверки</param>
-        /// <returns>Верно/неверно в зависимости от результата
-        /// проверки</returns>
-        public static bool IsAgeCorrect(string age)
-        {
-            var regex = new Regex("^[0-9]+$");
-            //TODO: +
-            return regex.IsMatch(age);
-        }
-
-        /// <summary>
-        /// Проверка для ввода возраста с клавиатуры
+        /// Проверка для ввода возраста
         /// </summary>
         /// <param name="number">Возраст для проверки</param>
         /// <returns>Корректный возраст</returns>
         public static int CheckingAge(int number)
         {
-            if (Convert.ToString(number) == string.Empty)
-            {
-                throw new Exception(
-                    "Expression is null or empty! ");
-            }
-            //TODO: To global const +
-            else if (!IsAgeCorrect(Convert.ToString(number)))
-            {
-                throw new Exception("Age must contain " +
-                    $"only integer values in range 0-{AgeMax}!");
-            }
-            else if (number < 0 || number > AgeMax)
+            if (number < 0 || number > AgeMax) 
             {
                 throw new Exception("The age must be " +
                     $"between 0 and {AgeMax} years!");
@@ -214,41 +187,23 @@ namespace PersonLib
         }
 
         /// <summary>
-        /// Проверка пола при вводе с клавиатуры
-        /// </summary>
-        /// <param name="sex">Пол человека</param>
-        /// <returns>Корректное значение</returns>
-        public static bool IsSexCorrect(string sex)
-        {
-            var regex = new Regex("^[0-1]$");
-            //TODO: +
-            return regex.IsMatch(sex);
-        }
-
-        /// <summary>
-        /// Проверка для ввода с клавиатуры пола
+        /// Проверка для ввода пола
         /// </summary>
         /// <param name="number">Цифра пола для проверки</param>
         /// <returns>Корректная цифра для определения пола</returns>
-        public static int CheckingSex(string number)
+        public static int CheckingSex(int number)
         {
-            if (number == string.Empty)
+            if (number < 0 || number > 1)
             {
-                throw new Exception(
-                    "Expression is null or empty!");
-            }
-            else if (!IsSexCorrect(number))
-            {
-                throw new Exception("Expression must contain " +
-                    "only 0 or 1!");
+                throw new Exception("Please enter 0 or 1 " +
+                    $", where 0 - Male, 1 - Female!");
             }
             else
             {
-                return Convert.ToInt32(number);
+                return number;
             }
         }
 
-        //TODO: Rename +
         /// <summary>
         /// Вывод информации о человеке
         /// </summary>

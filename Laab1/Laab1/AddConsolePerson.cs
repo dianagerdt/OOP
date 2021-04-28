@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using PersonLib;
 
 namespace Laab1
@@ -33,15 +32,21 @@ namespace Laab1
                 new Action(() =>
                 {
                     Console.Write("Age: ");
-                    newPerson.Age = int.Parse(Console.ReadLine());
+                    string ageString = Console.ReadLine();
+                    if(!Int32.TryParse(ageString, out int age))
+                    {
+                        throw new ArgumentException("The age must be an " +
+                            "integer value!");
+                    }
+                    newPerson.Age = age;
                 }),
                 new Action(() =>
                 {
                     Console.Write("Sex (0 - Male, 1 - Female): ");
-                    string sex = Console.ReadLine();
+                    int sex = Int32.Parse(Console.ReadLine());
                     Person.CheckingSex(sex);
                     newPerson.Sex = (Sex)Enum.Parse(
-                        typeof(Sex), sex);
+                        typeof(Sex), Convert.ToString(sex));
                 }),
             };
             actions.ForEach(SetValue);

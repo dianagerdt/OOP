@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace PersonLibrary
+namespace PersonLib
 {
     /// <summary>
-    /// Класс Человек 
-    /// Включает в себя поля, свойства и методы класса
+    /// Базовый класс  
     /// </summary>
-    public class Person
+    public abstract class PersonBase
     {
         /// <summary>
         /// Имя 
@@ -22,7 +21,7 @@ namespace PersonLibrary
         /// <summary>
         /// Возраст
         /// </summary>
-        private int _age;
+        protected int _age;
 
         /// <summary>
         /// Имя 
@@ -59,32 +58,12 @@ namespace PersonLibrary
         /// <summary>
         /// Возраст 
         /// </summary>
-        public int Age
-        {
-            get
-            {
-                return _age;
-            }
-            set
-            {
-                if (value < 0 || value > 125)
-                {
-                    throw new Exception(
-                        "The age must be between 0 and 125 years!");
-                }
-                _age = value;
-            }
-        }
+        public abstract int Age { get; set; }
 
         /// <summary>
         /// Пол 
         /// </summary>
         public Sex Sex { get; set; }
-
-        /// <summary>
-        /// Конструктор по умолчанию
-        /// </summary>
-        public Person() : this("Diana", "Gerdt", 93, Sex.Female) { }
 
         /// <summary>
         /// Констукрутор класса
@@ -93,13 +72,18 @@ namespace PersonLibrary
         /// <param name="surname">Фамилия человека</param>
         /// <param name="age">Возраст человека</param>
         /// <param name="sex">Пол человека</param>
-        public Person(string name, string surname, int age, Sex sex)
+        public PersonBase(string name, string surname, int age, Sex sex)
         {
             Name = name;
             Surname = surname;
             Age = age;
             Sex = sex;
         }
+
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
+        public PersonBase() : this("Diana", "Negerdt", 100, Sex.Female) { }
 
         /// <summary>
         /// Проверка имени и фамилии
@@ -116,7 +100,7 @@ namespace PersonLibrary
             else if (!IsNameAndSurnameCorrect(value))
             {
                 throw new FormatException("Name or surname must contain " +
-                    "only Cyrillic or Latin symbols! ");
+                    "only Cyrillic or Latin symbols!");
             }
             else
             {
@@ -130,15 +114,12 @@ namespace PersonLibrary
         /// <param name="value">Имя или фамилия для проверки</param>
         /// <returns>Верно/неверно в зависимости от результата
         /// проверки</returns>
-        public static bool IsNameAndSurnameCorrect(string value)
+        private static bool IsNameAndSurnameCorrect(string value)
         {
             var regex = new Regex("^([A-Za-z]|[А-Яа-я])+(((-| )?([A-Za-z]|" +
                 "[А-Яа-я])+))?$");
-            if (!regex.IsMatch(value))
-            {
-                return false;
-            }
-            return true;
+
+            return regex.IsMatch(value);
         }
 
         /// <summary>
@@ -171,92 +152,27 @@ namespace PersonLibrary
         }
 
         /// <summary>
-        /// Булевая проверка возраста на корректность ввода
-        /// </summary>
-        /// <param name="age">Возраст для проверки</param>
-        /// <returns>Верно/неверно в зависимости от результата
-        /// проверки</returns>
-        public static bool IsAgeCorrect(string age)
-        {
-            var regex = new Regex("^[0-9]+$");
-            if (!regex.IsMatch(age))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Проверка для ввода возраста с клавиатуры
-        /// </summary>
-        /// <param name="number">Возраст для проверки</param>
-        /// <returns>Корректный возраст</returns>
-        public static int CheckingAgeFromKey(string number)
-        {
-            if (number == string.Empty)
-            {
-                throw new Exception(
-                    "Expression is null or empty! ");
-            }
-            else if (!IsAgeCorrect(number))
-            {
-                throw new Exception("Age must contain " +
-                    "only integer values in range 0-125! ");
-            }
-            else if (Convert.ToInt32(number) < 0 || Convert.ToInt32(number) > 125)
-            {
-                throw new Exception("The age must be " +
-                    "between 0 and 125 years! ");
-            }
-            else
-            {
-                return Convert.ToInt32(number);
-            }
-        }
-
-        /// <summary>
-        /// Проверка пола при вводе с клавиатуры
-        /// </summary>
-        /// <param name="sex">Пол человека</param>
-        /// <returns>Корректное значение</returns>
-        public static bool IsSexCorrect(string sex)
-        {
-            {
-                if (Convert.ToInt32(sex) < 0 || Convert.ToInt32(sex) > 1)
-                {
-                    return false;
-                }
-                return true;
-            }
-        }
-
-        /// <summary>
-        /// Проверка для ввода с клавиатуры пола
+        /// Проверка для ввода пола
         /// </summary>
         /// <param name="number">Цифра пола для проверки</param>
         /// <returns>Корректная цифра для определения пола</returns>
-        public static int CheckingSexFromKey(string number)
+        public static int CheckingSex(int number)
         {
-            if (number == string.Empty)
+            if (number < 0 || number > 1)
             {
-                throw new Exception(
-                    "Expression is null or empty! ");
-            }
-            else if (!IsSexCorrect(number))
-            {
-                throw new Exception("Expression must contain " +
-                    "only 0 or 1!");
+                throw new Exception("Please enter 0 or 1 " +
+                    $", where 0 - Male, 1 - Female!");
             }
             else
             {
-                return Convert.ToInt32(number);
+                return number;
             }
         }
 
         /// <summary>
         /// Вывод информации о человеке
         /// </summary>
-        public string GetInfo
+        public virtual string Info
         {
             get
             {
