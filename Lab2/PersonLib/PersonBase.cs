@@ -58,7 +58,7 @@ namespace PersonLib
         /// <summary>
         /// Возраст 
         /// </summary>
-        public abstract int Age { get; set; }
+        public virtual int Age { get; set; }
 
         /// <summary>
         /// Пол 
