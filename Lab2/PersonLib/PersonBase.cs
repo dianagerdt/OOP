@@ -84,6 +84,11 @@ namespace PersonLib
         /// Конструктор по умолчанию
         /// </summary>
         public PersonBase() : this("Diana", "Negerdt", 100, Sex.Female) { }
+        
+        /// <summary>
+        /// Наименьший допустимый возраст 
+        /// </summary>
+        public const int MinAge = 0;
 
         /// <summary>
         /// Проверка имени и фамилии
@@ -152,24 +157,6 @@ namespace PersonLib
         }
 
         /// <summary>
-        /// Проверка для ввода пола
-        /// </summary>
-        /// <param name="number">Цифра пола для проверки</param>
-        /// <returns>Корректная цифра для определения пола</returns>
-        public static int CheckingSex(int number)
-        {
-            if (number < 0 || number > 1)
-            {
-                throw new Exception("Please enter 0 or 1 " +
-                    $", where 0 - Male, 1 - Female!");
-            }
-            else
-            {
-                return number;
-            }
-        }
-
-        /// <summary>
         /// Вывод информации о человеке
         /// </summary>
         public virtual string Info
@@ -177,6 +164,18 @@ namespace PersonLib
             get
             {
                 return $"{Name} {Surname}, Age: {Age}, Sex: {Sex}";
+            }
+        }
+
+        /// <summary>
+        /// Имя и фамилия
+        /// </summary>
+        /// <returns>Строка с информацией</returns>
+        public string ShortInfoAboutPerson
+        {
+            get
+            {
+                return $"{Name} {Surname}";
             }
         }
     }

@@ -12,9 +12,6 @@ namespace PersonLib
     public enum MaritalStatus
     {
         Single,
-        Married,
-        Separated,
-        Divorced,
-        Widowed
+        Married
     }
 }

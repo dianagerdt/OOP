@@ -12,12 +12,12 @@ namespace PersonLib
         /// <summary>
         /// Минимальный возраст взрослого
         /// </summary>
-        public const int MinAge = 18;
+        public const int MinAdultAge = 18;
 
         /// <summary>
         /// Максимальный возраст взрослого
         /// </summary>
-        public const int MaxAge = 100;
+        public const int MaxAdultAge = 100;
 
         /// <summary>
         /// Возраст
@@ -30,7 +30,7 @@ namespace PersonLib
             }
             set
             {
-                if (!(MinAge < value) && !(value <= MaxAge))
+                if (!(value > MinAdultAge) && !(value <= MaxAdultAge))
                 {
                     throw new ArgumentOutOfRangeException(
                         "Sorry, the age must be between 18 and 100 years.");
@@ -54,9 +54,9 @@ namespace PersonLib
             {
                 const string pattern = @"\D";
                 Regex regex = new Regex(pattern);
-                if (value.Length != 10 || regex.IsMatch(value.ToString()) == true)
+                if (value.Length != 9 || regex.IsMatch(value.ToString()) == true)
                 {
-                    throw new ArgumentException("Passport must contain 10 digits!");
+                    throw new ArgumentException("Passport must contain 9 digits!");
                 }
                 _passport = value;
             }
@@ -104,37 +104,9 @@ namespace PersonLib
         }
 
         /// <summary>
-        /// Поле Место работы
-        /// </summary>
-        private string _job;
-
-        /// <summary>
         /// Информация о месте работы
         /// </summary>
         public string Job { get; set; }
-
-        /// <summary>
-		/// Конструктор класса Adult
-		/// </summary>
-		/// <param name="name">Имя</param>
-		/// <param name="surname">Фамилия</param>
-		/// <param name="age">Возраст</param>
-		/// <param name="sex">Пол</param>
-		/// <param name="passport">Паспорт</param>
-		/// <param name="partner">Супруг(а)</param>
-		/// <param name="job">Место работы</param>
-		public Adult(string name, string surname, int age, Sex sex,
-            string passport, Adult partner, string job) : base(name, surname, age, sex)
-        {
-            Passport = passport;
-            Partner = partner;
-            Job = job;
-        }
-
-        /// <summary>
-		/// Конструктор по умолчанию
-		/// </summary>
-		public Adult() : this("Диана", "Гердт", 23, Sex.Female, "2283220000", null, "Безработная") { }
 
         /// <summary>
         /// Получение информации о взрослом человеке
@@ -162,6 +134,16 @@ namespace PersonLib
                 }
                 return personInfo;
             }
+        }
+
+        /// <summary>
+        /// Депрессия
+        /// </summary>
+        /// <returns>Здоровая психика</returns>
+        public string GoToTheTherapist()
+        {
+            return $"\n{ShortInfoAboutPerson}, who earned a little money" +
+                $" and finally goes to a therapist.";
         }
     }
 }
