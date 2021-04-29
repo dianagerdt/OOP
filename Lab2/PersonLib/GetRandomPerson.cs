@@ -17,6 +17,36 @@ namespace PersonLib
         private static Random randNum = new Random();
 
         /// <summary>
+        /// Строковый массив мужских имён
+        /// </summary>
+        private static string[] _maleNames = new string[]
+        {
+            "Alex", "Carl", "Rick", "Mattew",
+            "Nicholas", "Robert", "Draco",
+            "Lucius", "Kenny", "Severus", "Tom"
+        };
+
+        /// <summary>
+        /// Строковый массив женских имён
+        /// </summary>
+        private static string[] _femaleNames = new string[]
+        {
+            "Lyla", "Samanta", "Kate", "Kira",
+            "Amelia", "Julia", "Anastasia",
+            "Sindy", "Luna", "Violet", "Anna"
+        };
+
+        /// <summary>
+        /// Строковый массив фамилий
+        /// </summary>
+        private static string[] _allSurnames = new string[]
+        {
+            "Goyle", "Granger", "Black", "Malfoy",
+            "Weasley", "Dursley", "Riddle",
+            "Krum", "Snape", "Lovegood", "Lestrange"
+        };
+
+        /// <summary>
         /// Генерация случайного человека: взрослый или ребенок
         /// </summary>
         public static PersonBase CreateRandomPerson()
@@ -30,33 +60,13 @@ namespace PersonLib
                 return CreateRandomAdult();
             }
         }
+
         /// <summary>
         /// Заполнение базовых полей человека
         /// </summary>
         /// <param name="person">человек</param>
         public static void RandomPerson(PersonBase person)
         {
-            string[] _maleNames = new string[]
-            {
-                "Alex", "Carl", "Rick", "Mattew",
-                "Nicholas", "Robert", "Draco",
-                "Lucius", "Kenny", "Severus", "Tom"
-            };
-
-            string[] _femaleNames = new string[]
-            {
-                "Lyla", "Samanta", "Kate", "Kira",
-                "Amelia", "Julia", "Anastasia",
-                "Sindy", "Luna", "Violet", "Anna"
-            };
-
-            string[] _allSurnames = new string[]
-            {
-                "Goyle", "Granger", "Black", "Malfoy",
-                "Weasley", "Dursley", "Riddle",
-                "Krum", "Snape", "Lovegood", "Lestrange"
-            };
-
             Sex sex = (Sex)randNum.Next(0, 2);
             switch (sex)
             {
@@ -71,7 +81,7 @@ namespace PersonLib
         }
 
         /// <summary>
-        /// Генерация паспортных двнных
+        /// Генерация паспортных данных
         /// </summary>
         /// <param name="adult">Взрослый человек</param>
         private static void GetPasportData(Adult adult)
@@ -93,7 +103,7 @@ namespace PersonLib
             randomAdult.Age = randNum.Next(Adult.MinAdultAge, Adult.MaxAdultAge);
             if (!married)
             {
-                randomAdult.MaritalStatus = (MaritalStatus)randNum.Next(0, 2);
+                randomAdult.MaritalStatus = (MaritalStatus)randNum.Next(0, 4);
                 if (randomAdult.MaritalStatus == MaritalStatus.Married)
                 {
                     randomAdult.Partner = CreateRandomAdult(true, randomAdult);

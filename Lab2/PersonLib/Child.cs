@@ -90,7 +90,7 @@ namespace PersonLib
         /// Ребенок-тиктокер
         /// </summary>
         /// <returns>Горе в семье</returns>
-        public string GoFilmTiktoks()
+        public string GoWatchTiktoks()
         {
 
             return $"{ShortInfoAboutPerson}, who watched Tiktoks " +

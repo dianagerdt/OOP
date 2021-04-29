@@ -48,24 +48,30 @@ namespace Lab2
             }
             
             Console.ReadKey();
-            Console.Write("The forth person in the list is...\n ");
+            Console.Write("The fourth person in the list is...\n ");
 
             switch (listOfPersons.FindByIndex(3))
             {
                 case Adult adult:
-                    {
-                        Console.WriteLine(adult.GoToTheTherapist());
-                        break;
-                    }
+                {
+                    Console.WriteLine(adult.GoToTheTherapist());
+                    break;
+                }
 
                 case Child child:
-                    {
-                        Console.WriteLine(child.GoFilmTiktoks());
-                        break;
-                    }
+                {
+                    Console.WriteLine(child.GoWatchTiktoks());
+                    break;
+                }
             }
 
             Console.ReadKey();
+            Console.WriteLine();
+            Console.Write("Thanks for watching this masterpiece, " +
+                "see you in the next episodes. Press any key to exit...");
+            Console.WriteLine();
+            Console.ReadKey();
+
         }
     }
 }
