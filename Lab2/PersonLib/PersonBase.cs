@@ -58,7 +58,7 @@ namespace PersonLib
         /// <summary>
         /// Возраст 
         /// </summary>
-        public virtual int Age { get; set; }
+        public abstract int Age { get; set; }
 
         /// <summary>
         /// Пол 
@@ -84,11 +84,6 @@ namespace PersonLib
         /// Конструктор по умолчанию
         /// </summary>
         public PersonBase() : this("Diana", "Negerdt", 100, Sex.Female) { }
-        
-        /// <summary>
-        /// Наименьший допустимый возраст 
-        /// </summary>
-        public const int MinAge = 0;
 
         /// <summary>
         /// Проверка имени и фамилии

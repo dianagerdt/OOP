@@ -12,6 +12,11 @@ namespace PersonLib
     public class Child : PersonBase
     {
         /// <summary>
+        /// Наименьший допустимый возраст 
+        /// </summary>
+        public const int MinChildAge = 0;
+
+        /// <summary>
         /// Максимальный возраст ребёнка
         /// по законодательству РФ
         /// </summary>
@@ -31,7 +36,7 @@ namespace PersonLib
             }
             set
             {
-                if (!(value > MinAge) && !(value <= MaxChildAge))
+                if (!(value > MinChildAge) && !(value <= MaxChildAge))
                 {
                     throw new ArgumentOutOfRangeException(
                         "Sorry, the age must be between 0 and 17 years.");
@@ -43,12 +48,12 @@ namespace PersonLib
         /// <summary>
         /// Мать
         /// </summary>
-        public Adult Mother { get; set; }
+        public Adult ParentOne { get; set; }
 
         /// <summary>
         /// Отец
         /// </summary>
-        public Adult Father { get; set; }
+        public Adult ParentTwo { get; set; }
 
         /// <summary>
         /// Название детского сада или школы
@@ -64,17 +69,17 @@ namespace PersonLib
             get
             {
                 var personInfo = base.Info;
-                if (Mother != null)
+                if (ParentOne != null)
                 {
-                    personInfo += $"\nMother:" +
-                        $"{Mother.Name} {Mother.Surname} ";
+                    personInfo += $"\nParent one:" +
+                        $"{ParentOne.Name} {ParentOne.Surname} ";
                 }
-                if (Father != null)
+                if (ParentTwo != null)
                 {
-                    personInfo += $"\nFather:" +
-                        $" {Father.Name} {Father.Surname} ";
+                    personInfo += $"\nParent two:" +
+                        $" {ParentTwo.Name} {ParentTwo.Surname} ";
                 }
-                if (Mother == null && Father == null)
+                if (ParentOne == null && ParentTwo == null)
                 {
                     personInfo += "\nOrphan";
                 }

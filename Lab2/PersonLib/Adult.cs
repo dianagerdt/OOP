@@ -116,8 +116,9 @@ namespace PersonLib
         {
             get
             {
-                var personInfo = base.Info + $"\nPassport Data: {Passport}" +
-                $"\nMaritial Status: {MaritalStatus}";
+                var personInfo = base.Info + 
+                    $"\nPassport Data: {Passport}" +
+                    $"\nMaritial Status: {MaritalStatus}";
                 if (MaritalStatus == MaritalStatus.Married)
                 {
                     personInfo += $"\nSpouse: {Partner.Name} " +

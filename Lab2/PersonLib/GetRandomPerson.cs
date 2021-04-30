@@ -14,7 +14,7 @@ namespace PersonLib
         /// <summary>
         /// Объект класса Random
         /// </summary>
-        private static Random randNum = new Random();
+        private static Random _randNum = new Random(DateTime.Now.Second);
 
         /// <summary>
         /// Строковый массив мужских имён
@@ -51,7 +51,7 @@ namespace PersonLib
         /// </summary>
         public static PersonBase CreateRandomPerson()
         {
-            if (randNum.Next(0, 2) != 0)
+            if (_randNum.Next(0, 2) != 0)
             {
                 return CreateRandomChild();
             }
@@ -67,17 +67,19 @@ namespace PersonLib
         /// <param name="person">человек</param>
         public static void RandomPerson(PersonBase person)
         {
-            Sex sex = (Sex)randNum.Next(0, 2);
+            Sex sex = (Sex)_randNum.Next(0, 2);
             switch (sex)
             {
                 case Sex.Male:
-                    person.Name = _maleNames[randNum.Next(_maleNames.Length)];
+                {
+                    person.Name = _maleNames[_randNum.Next(_maleNames.Length)];
                     break;
+                }
                 case Sex.Female:
-                    person.Name = _femaleNames[randNum.Next(_femaleNames.Length)];
+                    person.Name = _femaleNames[_randNum.Next(_femaleNames.Length)];
                     break;
             }
-            person.Surname = _allSurnames[randNum.Next(_allSurnames.Length)];
+            person.Surname = _allSurnames[_randNum.Next(_allSurnames.Length)];
         }
 
         /// <summary>
@@ -86,7 +88,7 @@ namespace PersonLib
         /// <param name="adult">Взрослый человек</param>
         private static void GetPasportData(Adult adult)
         {
-            var _passport = randNum.Next(100000000, 999999999).ToString();
+            var _passport = _randNum.Next(100000000, 999999999).ToString();
             adult.Passport = _passport;
         }
 
@@ -100,10 +102,10 @@ namespace PersonLib
         {
             var randomAdult = new Adult();
             RandomPerson(randomAdult);
-            randomAdult.Age = randNum.Next(Adult.MinAdultAge, Adult.MaxAdultAge);
+            randomAdult.Age = _randNum.Next(Adult.MinAdultAge, Adult.MaxAdultAge);
             if (!married)
             {
-                randomAdult.MaritalStatus = (MaritalStatus)randNum.Next(0, 4);
+                randomAdult.MaritalStatus = (MaritalStatus)_randNum.Next(0, 4);
                 if (randomAdult.MaritalStatus == MaritalStatus.Married)
                 {
                     randomAdult.Partner = CreateRandomAdult(true, randomAdult);
@@ -114,14 +116,14 @@ namespace PersonLib
                 randomAdult.MaritalStatus = MaritalStatus.Married;
                 randomAdult.Partner = partner;
             }
-            string[] _jobs = new string[]
+            string[] jobs = new string[]
             {
                 "Burger King", "KFC", "McDonald’s",
                 "Kremlin Bot", "Google", "FBI",
                 "Tiktok", "Drugstore", "Microsoft"
             };
 
-            randomAdult.Job = _jobs[randNum.Next(0, _jobs.Length)];
+            randomAdult.Job = jobs[_randNum.Next(0, jobs.Length)];
             GetPasportData(randomAdult);
             return randomAdult;
         }
@@ -134,31 +136,31 @@ namespace PersonLib
         {
             Child randomChild = new Child();
             RandomPerson(randomChild);
-            randomChild.Age = randNum.Next(PersonBase.MinAge, Child.MaxChildAge);
+            randomChild.Age = _randNum.Next(Child.MinChildAge, Child.MaxChildAge);
 
-            bool hasMother = randNum.Next(0, 2) != 0;
+            bool hasMother = _randNum.Next(0, 2) != 0;
 
             if (hasMother)
             {
-                randomChild.Mother = CreateRandomAdult();
+                randomChild.ParentOne = CreateRandomAdult();
             }
 
-            bool hasFather = randNum.Next(0, 2) != 0;
+            bool hasFather = _randNum.Next(0, 2) != 0;
 
             if (hasFather)
             {
-                randomChild.Father = CreateRandomAdult();
+                randomChild.ParentTwo = CreateRandomAdult();
             }
 
-            string[] _schools = new string[]
+            string[] schools = new string[]
             {
                 "South Park Elementary School", "Kindergarten #1",
-                "Springfield Elementary School", "School #13", "School #322",
+                "Springfield Elementary School", "#13", "#322",
                 "Hogwarts School of Witchcraft and Wizardry", "Columbine",
                 "Lyceum for alternatively gifted"
             };
 
-            randomChild.School = _schools[randNum.Next(0, _schools.Length)];
+            randomChild.School = schools[_randNum.Next(0, schools.Length)];
 
             return randomChild;
         }
