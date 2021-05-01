@@ -67,17 +67,21 @@ namespace PersonLib
         /// <param name="person">человек</param>
         public static void RandomPerson(PersonBase person)
         {
-            Sex sex = (Sex)_randNum.Next(0, 2);
+            var sex = _randNum.Next(0, 2);
             switch (sex)
             {
-                case Sex.Male:
+                case 0:
                 {
+                    person.Sex = Sex.Male;
                     person.Name = _maleNames[_randNum.Next(_maleNames.Length)];
                     break;
                 }
-                case Sex.Female:
+                case 1:
+                {
+                    person.Sex = Sex.Female;  
                     person.Name = _femaleNames[_randNum.Next(_femaleNames.Length)];
                     break;
+                }
             }
             person.Surname = _allSurnames[_randNum.Next(_allSurnames.Length)];
         }
@@ -154,7 +158,7 @@ namespace PersonLib
 
             string[] schools = new string[]
             {
-                "South Park Elementary School", "Kindergarten #1",
+                "South Park Elementary School", "#1",
                 "Springfield Elementary School", "#13", "#322",
                 "Hogwarts School of Witchcraft and Wizardry", "Columbine",
                 "Lyceum for alternatively gifted"

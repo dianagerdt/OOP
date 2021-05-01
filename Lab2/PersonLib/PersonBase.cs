@@ -83,7 +83,7 @@ namespace PersonLib
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        public PersonBase() : this("Diana", "Negerdt", 100, Sex.Female) { }
+        public PersonBase() : this("Diana", "Negerdt", 100, Sex.Male) { }
 
         /// <summary>
         /// Проверка имени и фамилии

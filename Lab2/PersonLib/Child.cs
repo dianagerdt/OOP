@@ -72,7 +72,7 @@ namespace PersonLib
                 if (ParentOne != null)
                 {
                     personInfo += $"\nParent one:" +
-                        $"{ParentOne.Name} {ParentOne.Surname} ";
+                        $" {ParentOne.Name} {ParentOne.Surname} ";
                 }
                 if (ParentTwo != null)
                 {
