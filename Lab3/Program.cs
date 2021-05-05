@@ -63,7 +63,7 @@ namespace Lab3
         }
 
         /// <summary>
-        /// Вывести ифномарцию в консоль
+        /// Вывести информацию в консоль
         /// </summary>
         /// <param name="figure">Экземпляр класса Фигура</param>
         public static void GetVolumeInfo(FigureBase figure)

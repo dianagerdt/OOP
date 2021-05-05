@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model.Figures
 {
+    /// <summary>
+    /// Класс Дискошар
+    /// </summary>
     public class DiscoBall : FigureBase
     {
 
@@ -31,8 +34,10 @@ namespace Model.Figures
         }
 
         /// <summary>
-        /// Вычисление объёма вечеринки
+        /// Вычисление объёма шара
         /// </summary>
+        /// <retutns>Объём шара</retutns>
+
         public override double Volume
         {
             get

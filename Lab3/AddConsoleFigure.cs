@@ -96,7 +96,7 @@ namespace Lab3
         }
 
         // <summary>
-        /// Получение пользовательский ввода
+        /// Получение пользовательского ввода
         /// и задание параметра
         /// </summary>
         public static void SetValue(Action action)

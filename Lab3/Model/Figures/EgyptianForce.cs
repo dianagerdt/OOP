@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model.Figures
 {
+    /// <summary>
+    /// Класс Египетская пирамида
+    /// </summary>
     public class EgyptianForce : FigureBase
     {
         /// <summary>
@@ -53,6 +56,8 @@ namespace Model.Figures
         /// <summary>
         /// Вычисление египетской силы
         /// </summary>
+        /// <retutns>Объём пирамиды</retutns>
+
         public override double Volume
         {
             get 

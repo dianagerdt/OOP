@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model.Figures
 {
+    /// <summary>
+    /// Класс Ящик пива
+    /// </summary>
     public class BoxOfBeer : FigureBase
     {
 
@@ -75,6 +78,7 @@ namespace Model.Figures
         /// <summary>
         /// Вычисление объёма ящика пива
         /// </summary>
+        /// <retutns>Объём ящика</retutns>
         public override double Volume
         {
             get 
