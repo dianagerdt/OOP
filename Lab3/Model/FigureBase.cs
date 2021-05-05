@@ -3,11 +3,12 @@ using System.Text.RegularExpressions;
 
 namespace Model
 {
+    /// <summary>
+    /// Базовый класс 
+    /// для всех объёмных фигур
+    /// </summary>
     public abstract class FigureBase
     {
-
-        public abstract double CalculateVolume { get; }
-        
         /// <summary>
         /// Число
         /// </summary>
@@ -27,21 +28,26 @@ namespace Model
         }
 
         /// <summary>
+        /// Расчёт объёма
+        /// </summary>
+        public abstract double CalculateVolume { get; }
+
+        /// <summary>
         /// Проверка числа
         /// </summary>
-        /// <param name="number">Возраст для проверки</param>
-        /// <returns>Корректный возраст</returns>
+        /// <param name="number">Число для проверки</param>
+        /// <returns>Корректное число</returns>
         public static double CheckingNumber(double number)
         {
             if (number < 0)
             {
-                throw new ArgumentOutOfRangeException("The number" +
-                    " must be greater than zero!");
+                throw new ArgumentOutOfRangeException("Величина должна " +
+                    "быть положительным числом!");
             }
             if(!IsNumberCorrect(number))
             {
-                throw new ArgumentOutOfRangeException("Oops! Check if" +
-                    " the number is entered correctly");
+                throw new ArgumentOutOfRangeException("А, ой... Кажется, " +
+                    "вы ввели не число.");
             }
             else
             {
@@ -50,9 +56,9 @@ namespace Model
         }
 
         /// <summary>
-        /// Проверка имени и фамилии на корректность ввода
+        /// Проверка числа на корректность ввода
         /// </summary>
-        /// <param name="value">Имя или фамилия для проверки</param>
+        /// <param name="value">Число для проверки</param>
         /// <returns>Верно/неверно в зависимости от результата
         /// проверки</returns>
         private static bool IsNumberCorrect(double value)

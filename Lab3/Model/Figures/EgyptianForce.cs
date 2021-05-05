@@ -45,7 +45,7 @@ namespace Model.Figures
             }
             set
             {
-                FigureBase.CheckingNumber(value);
+                CheckingNumber(value);
                 _height = value;
             }
         }

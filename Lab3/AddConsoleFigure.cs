@@ -49,13 +49,13 @@ namespace Lab3
             {
                 new Action(() =>
                 {
-                    Console.WriteLine("Длина ящика: ");
+                    Console.WriteLine("Площадь основания: ");
                     egyptianForce.BaseArea =
                         ReadFromConsoleAndParse();
                 }),
                 new Action(() =>
                 {
-                    Console.WriteLine("Ширина ящика: ");
+                    Console.WriteLine("Высота: ");
                     egyptianForce.Height =
                         ReadFromConsoleAndParse();
                 }),
