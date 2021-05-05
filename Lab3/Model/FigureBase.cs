@@ -31,6 +31,5 @@ namespace Model
                 return number;
             }
         }
-
     }
 }

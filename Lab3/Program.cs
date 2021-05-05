@@ -69,7 +69,7 @@ namespace Lab3
         public static void GetVolumeInfo(FigureBase figure)
         {
             Console.WriteLine($"Объем фигуры равен " +
-                $"{figure.Volume} м^3. \n");
+                $"{figure.Volume} м^3.");
         }
     }
 }

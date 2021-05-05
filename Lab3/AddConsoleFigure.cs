@@ -12,7 +12,7 @@ namespace Lab3
         /// <summary>
         /// Ввод данных о размерах ящика пива
         /// </summary>
-        /// <returns>Созданный экземпляр класса Ящик пива</returns>
+        /// <returns>Экземпляр класса Ящик пива</returns>
         public static BoxOfBeer GetNewBoxOfBeerFromKeyboard()
         {
             var boxOfBeer = new BoxOfBeer();
@@ -44,7 +44,7 @@ namespace Lab3
         /// <summary>
         /// Ввод данных о пирамиде
         /// </summary>
-        /// <returns>Созданный экземпляр класса Египетская сила</returns>
+        /// <returns>Экземпляр класса Египетская сила</returns>
         public static EgyptianForce GetNewEgyptianForceFromKeyboard()
         {
             var egyptianForce = new EgyptianForce();
@@ -70,7 +70,7 @@ namespace Lab3
         /// <summary>
         /// Ввод данных о дискошаре
         /// </summary>
-        /// <returns>Созданный экземпляр класса Дискошар</returns>
+        /// <returns>Экземпляр класса Дискошар</returns>
         public static DiscoBall GetNewDiscoBallFromKeyboard()
         {
             var discoball = new DiscoBall();

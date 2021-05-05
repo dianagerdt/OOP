@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace Model.Figures
 {
     /// <summary>
-    /// Класс Ящик пива
+    /// Класс Ящик пива 
+    /// (то есть параллелепипед)
     /// </summary>
     public class BoxOfBeer : FigureBase
     {
-
         /// <summary>
         /// Длина
         /// </summary>
