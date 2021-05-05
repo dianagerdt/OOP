@@ -33,7 +33,7 @@ namespace Model.Figures
         /// <summary>
         /// Вычисление объёма вечеринки
         /// </summary>
-        public override double CalculateVolume
+        public override double Volume
         {
             get
             {

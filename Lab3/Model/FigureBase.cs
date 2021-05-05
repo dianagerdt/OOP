@@ -10,27 +10,9 @@ namespace Model
     public abstract class FigureBase
     {
         /// <summary>
-        /// Число
-        /// </summary>
-        private double _number;
-
-        public double Number
-        {
-            get
-            {
-                return _number;
-            }
-            set
-            {
-                CheckingNumber(value);
-                _number = value;
-            }
-        }
-
-        /// <summary>
         /// Расчёт объёма
         /// </summary>
-        public abstract double CalculateVolume { get; }
+        public abstract double Volume { get; }
 
         /// <summary>
         /// Проверка числа
@@ -44,28 +26,11 @@ namespace Model
                 throw new ArgumentOutOfRangeException("Величина должна " +
                     "быть положительным числом!");
             }
-            if(!IsNumberCorrect(number))
-            {
-                throw new ArgumentOutOfRangeException("А, ой... Кажется, " +
-                    "вы ввели не число.");
-            }
             else
             {
                 return number;
             }
         }
 
-        /// <summary>
-        /// Проверка числа на корректность ввода
-        /// </summary>
-        /// <param name="value">Число для проверки</param>
-        /// <returns>Верно/неверно в зависимости от результата
-        /// проверки</returns>
-        private static bool IsNumberCorrect(double value)
-        {
-            var regex = new Regex(@"^-?\d*\.?\d*");
-
-            return regex.IsMatch(Convert.ToString(value));
-        }
     }
 }

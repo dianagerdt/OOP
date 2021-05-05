@@ -75,7 +75,7 @@ namespace Model.Figures
         /// <summary>
         /// Вычисление объёма ящика пива
         /// </summary>
-        public override double CalculateVolume
+        public override double Volume
         {
             get 
             {

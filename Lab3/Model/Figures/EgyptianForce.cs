@@ -53,12 +53,11 @@ namespace Model.Figures
         /// <summary>
         /// Вычисление египетской силы
         /// </summary>
-        public override double CalculateVolume
+        public override double Volume
         {
             get 
             {
-                return Math.Round((1 / 3) * BaseArea *
-                    Height, 3);
+                return Math.Round(BaseArea * Height * 1 / 3, 2);
             }
         }
     }

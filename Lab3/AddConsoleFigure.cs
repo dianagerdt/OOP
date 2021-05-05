@@ -4,6 +4,9 @@ using Model.Figures;
 
 namespace Lab3
 {
+    /// <summary>
+    /// Добавление фигур с консоли
+    /// </summary>
     public static class AddConsoleFigure
     {
         /// <summary>
@@ -17,19 +20,19 @@ namespace Lab3
             {
                 new Action(() =>
                 {
-                    Console.WriteLine("Длина ящика: ");
+                    Console.WriteLine("Длина ящика, м: ");
                     boxOfBeer.Length =
                         ReadFromConsoleAndParse();
                 }),
                 new Action(() =>
                 {
-                    Console.WriteLine("Ширина ящика: ");
+                    Console.WriteLine("Ширина ящика, м: ");
                     boxOfBeer.Width =
                         ReadFromConsoleAndParse();
                 }),
                 new Action(() =>
                 {
-                    Console.WriteLine("Высота ящика: ");
+                    Console.WriteLine("Высота ящика, м: ");
                     boxOfBeer.Height =
                         ReadFromConsoleAndParse();
                 })
@@ -49,13 +52,13 @@ namespace Lab3
             {
                 new Action(() =>
                 {
-                    Console.WriteLine("Площадь основания: ");
+                    Console.WriteLine("Площадь основания, м: ");
                     egyptianForce.BaseArea =
                         ReadFromConsoleAndParse();
                 }),
                 new Action(() =>
                 {
-                    Console.WriteLine("Высота: ");
+                    Console.WriteLine("Высота, м: ");
                     egyptianForce.Height =
                         ReadFromConsoleAndParse();
                 }),
@@ -75,7 +78,7 @@ namespace Lab3
             {
                 new Action(() =>
                 {
-                    Console.WriteLine("Радиус дискошара: ");
+                    Console.WriteLine("Радиус дискошара, м: ");
                     discoball.Radius =
                         ReadFromConsoleAndParse();
                 }),
@@ -85,7 +88,7 @@ namespace Lab3
         }
 
         /// <summary>
-        /// Получить пользовательский ввод и преобразовать в double
+        /// Чтение с консоли и преобразование в double
         /// </summary>
         public static double ReadFromConsoleAndParse()
         {
