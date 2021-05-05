@@ -65,7 +65,7 @@ namespace Lab3
         /// <summary>
         /// Вывести ифномарцию в консоль
         /// </summary>
-        /// <param name="capacitor">Экземпляр класса Фигура</param>
+        /// <param name="figure">Экземпляр класса Фигура</param>
         public static void GetVolumeInfo(FigureBase figure)
         {
             Console.WriteLine($"Объем фигуры равен " +
