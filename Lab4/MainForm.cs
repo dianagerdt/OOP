@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using System.IO;
 using System.Xml.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 
 
 namespace Lab3
@@ -186,6 +179,8 @@ namespace Lab3
             DeleteFugureButton.Enabled = false;
             DropFilterButton.Enabled = true;
             SearchFigureButton.Enabled = false;
+            AddFigureButton.Enabled = false;
+            RandomFigureButton.Enabled = false;
         }
 
         // <summary>
@@ -199,6 +194,8 @@ namespace Lab3
             DataGridFigureTools.CreateTable(_figureList, DataFigureView);
             DeleteFugureButton.Enabled = true;
             SearchFigureButton.Enabled = true;
+            AddFigureButton.Enabled = true;
+            RandomFigureButton.Enabled = true;
             _listForSearch.Clear();
         }
     }
