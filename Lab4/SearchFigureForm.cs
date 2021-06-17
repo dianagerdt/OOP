@@ -39,32 +39,28 @@ namespace Lab3
             TextBoxVolume.Enabled = false;
         }
 
+        //TODO:
         /// <summary>
         /// Обработка чисел на форме
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void NumericTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        private void NumericTextboxKeyPress(object sender, 
+            KeyPressEventArgs e)
         {
             const string letterPattern = @"[^0-9,]";
-            CheckBox.CheckBox_KeyPress(letterPattern, e);
+            e.Handled = TextBoxProcessing.TextBoxProcessingKeyPress
+                (letterPattern, e.KeyChar);
         }
         
         /// <summary>
-        /// Обработчик изменения свойства Check объекта VolumeCheckBox.
+        /// Обработчик изменения свойства Check объекта VolumeCheckBox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void CheckBoxVolumeCheckedChanged(object sender, EventArgs e)
         {
-            if (CheckBoxVolume.Checked == true)
-            {
-                TextBoxVolume.Enabled = true;
-            }
-            else
-            {
-                TextBoxVolume.Enabled = false;
-            }
+            TextBoxVolume.Enabled = CheckBoxVolume.Checked;
         }
 
         /// <summary>
@@ -93,7 +89,8 @@ namespace Lab3
                     case DiscoBall _ when CheckBoxBall.Checked:
                         {
                             count++;
-                            SendDataFromFormEvent?.Invoke(this, new FigureEventArgs(figures));
+                            SendDataFromFormEvent?.Invoke(this, 
+                                new FigureEventArgs(figures));
                             break;
                         }
                 }
@@ -102,7 +99,8 @@ namespace Lab3
                     StartsWith(TextBoxVolume.Text))
                 {
                     count++;
-                    SendDataFromFormEvent?.Invoke(this, new FigureEventArgs(figures));
+                    SendDataFromFormEvent?.Invoke(this, 
+                        new FigureEventArgs(figures));
                 }
             }
             if (count == 0)

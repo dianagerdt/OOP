@@ -81,7 +81,7 @@ namespace Lab3
             this.TextBoxVolume.Name = "TextBoxVolume";
             this.TextBoxVolume.Size = new System.Drawing.Size(58, 20);
             this.TextBoxVolume.TabIndex = 4;
-            this.TextBoxVolume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericTextbox_KeyPress);
+            this.TextBoxVolume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericTextboxKeyPress);
             // 
             // CheckBoxBall
             // 

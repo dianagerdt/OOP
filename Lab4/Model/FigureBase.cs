@@ -26,6 +26,7 @@ namespace Model
         /// </summary>
         public abstract double Volume { get; }
 
+        //TODO: NaN
         /// <summary>
         /// Проверка числа
         /// </summary>
@@ -37,6 +38,10 @@ namespace Model
             {
                 throw new ArgumentOutOfRangeException("Величина должна " +
                     "быть положительным числом!");
+            }
+            else if (double.IsNaN(number))
+            {
+                throw new Exception("Нечисловое значение!");
             }
             else
             {

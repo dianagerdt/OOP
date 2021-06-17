@@ -58,7 +58,7 @@ namespace Lab3
         /// </summary>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            DataGridFigureView.CreateTable(_figureList, DataFigureView);
+            DataGridFigureTools.CreateTable(_figureList, DataFigureView);
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Lab3
         /// <summary>
         /// Событие при загрузке файла
         /// </summary>
-        private void LoadToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoadToolStripMenuItemClick(object sender, EventArgs e)
         {
             var openFileDialog = new OpenFileDialog
             {
@@ -123,7 +123,7 @@ namespace Lab3
         /// <summary>
         /// Событие при сохранении файла
         /// </summary>
-        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveToolStripMenuItemClick(object sender, EventArgs e)
         {
             if (_figureList.Count == 0)
             {
@@ -182,7 +182,7 @@ namespace Lab3
         public void AddSearchTransportEvent(object sender, FigureEventArgs e)
         {
             _listForSearch.Add(e.SendingFigure);
-            DataGridFigureView.CreateTable(_listForSearch, DataFigureView);
+            DataGridFigureTools.CreateTable(_listForSearch, DataFigureView);
             DeleteFugureButton.Enabled = false;
             DropFilterButton.Enabled = true;
             SearchFigureButton.Enabled = false;
@@ -196,7 +196,7 @@ namespace Lab3
         private void DropFilterButton_Click(object sender, EventArgs e)
         {
             DataFigureView.DataSource = null;
-            DataGridFigureView.CreateTable(_figureList, DataFigureView);
+            DataGridFigureTools.CreateTable(_figureList, DataFigureView);
             DeleteFugureButton.Enabled = true;
             SearchFigureButton.Enabled = true;
             _listForSearch.Clear();

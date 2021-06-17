@@ -54,7 +54,7 @@
     <Compile Include="AddFigureForm.Designer.cs">
       <DependentUpon>AddFigureForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataGridFigureView.cs" />
+    <Compile Include="DataGridFigureTools.cs" />
     <Compile Include="FigureEventArgs.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -71,7 +71,7 @@
     <Compile Include="SearchFigureForm.Designer.cs">
       <DependentUpon>SearchFigureForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CheckBox.cs" />
+    <Compile Include="TextBoxProcessing.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

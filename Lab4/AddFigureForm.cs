@@ -111,11 +111,12 @@ namespace Lab3
             }
         }
 
+        //TODO: Несоответствие комментариев передаваемому аргументу +
         /// <summary>
         /// Установка видимых TextBox в зависимости
         /// от выбранной фигуры
         /// </summary>
-        /// <param name="capacitor">Фигура</param>
+        /// <param name="figure">Фигура</param>
         private void MakeVisible(FigureBase figure)
         {
             switch (figure)
@@ -168,20 +169,26 @@ namespace Lab3
         /// </summary>
         private void FigureChoiceComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (FigureChoiceComboBox.SelectedIndex == 0)
+            switch (FigureChoiceComboBox.SelectedIndex)
             {
-                _figure = new BoxOfBeer();
-                MakeVisible(_figure);
-            }
-            if (FigureChoiceComboBox.SelectedIndex == 1)
-            {
-                _figure = new EgyptianForce();
-                MakeVisible(_figure);
-            }
-            if (FigureChoiceComboBox.SelectedIndex == 2)
-            {
-                _figure = new DiscoBall();
-                MakeVisible(_figure);
+                case 0:
+                {
+                    _figure = new BoxOfBeer();
+                    MakeVisible(_figure);
+                    break;
+                }
+                case 1:
+                {
+                    _figure = new EgyptianForce();
+                    MakeVisible(_figure);
+                    break;
+                }
+                case 2:
+                {
+                    _figure = new DiscoBall();
+                    MakeVisible(_figure);
+                    break;
+                }
             }
         }
 
@@ -192,7 +199,6 @@ namespace Lab3
         private void SetValue(Action action)
         {
             action.Invoke();
-            return;
         }
 
         /// <summary>
@@ -316,10 +322,11 @@ namespace Lab3
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void NumericTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        private void NumericTextboxKeyPress(object sender, KeyPressEventArgs e)
         {
             const string letterPattern = @"[^0-9,]";
-            CheckBox.CheckBox_KeyPress(letterPattern, e);
+            e.Handled = TextBoxProcessing.
+                TextBoxProcessingKeyPress(letterPattern, e.KeyChar);
         }
 
         /// <summary>

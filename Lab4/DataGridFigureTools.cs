@@ -9,10 +9,11 @@ using System.ComponentModel;
 
 namespace Lab3
 {
+    //TODO: naming +
     /// <summary>
     /// Класс для создания таблицы желаемого формата
     /// </summary>
-    public static class DataGridFigureView
+    public static class DataGridFigureTools
     {
         /// <summary>
         /// Метод создания таблицы желаемого формата

@@ -141,14 +141,14 @@ namespace Lab3
             this.LoadToolStripMenuItem.Name = "LoadToolStripMenuItem";
             this.LoadToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.LoadToolStripMenuItem.Text = "Загрузить";
-            this.LoadToolStripMenuItem.Click += new System.EventHandler(this.LoadToolStripMenuItem_Click);
+            this.LoadToolStripMenuItem.Click += new System.EventHandler(this.LoadToolStripMenuItemClick);
             // 
             // SaveToolStripMenuItem
             // 
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
             this.SaveToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.SaveToolStripMenuItem.Text = "Сохранить";
-            this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
+            this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItemClick);
             // 
             // DropFilterButton
             // 

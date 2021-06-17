@@ -6,23 +6,24 @@ namespace Lab3
     /// <summary>
     /// Класс для обработки ввода в TextBox
     /// </summary>
-    public static class CheckBox
+    public static class TextBoxProcessing
     {
+        //TODO: naming +
         /// <summary>
         /// Обработка ввода в TextBox
         /// </summary>
         /// <param name="pattern">Паттерн</param>
         /// <param name="e">Объект события</param>
-        public static void CheckBox_KeyPress(string pattern, KeyPressEventArgs e)
+        public static bool TextBoxProcessingKeyPress(string pattern, char e)
         {
-            Regex letterRegex = new Regex(pattern);
+            var letterRegex = new Regex(pattern);
 
-            if (!letterRegex.IsMatch(e.KeyChar.ToString())
-                    || e.KeyChar == (char)Keys.Back)
+            if (!letterRegex.IsMatch(e.ToString())
+                    || e == (char)Keys.Back)
             {
-                return;
+                return false;
             }
-            e.Handled = true;
+            return true;
         }
     }
 }

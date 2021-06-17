@@ -105,7 +105,7 @@ namespace Lab3
             this.RadiusTextbox.Name = "RadiusTextbox";
             this.RadiusTextbox.Size = new System.Drawing.Size(85, 20);
             this.RadiusTextbox.TabIndex = 7;
-            this.RadiusTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericTextbox_KeyPress);
+            this.RadiusTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericTextboxKeyPress);
             // 
             // HeightTextbox
             // 
@@ -113,7 +113,7 @@ namespace Lab3
             this.HeightTextbox.Name = "HeightTextbox";
             this.HeightTextbox.Size = new System.Drawing.Size(85, 20);
             this.HeightTextbox.TabIndex = 6;
-            this.HeightTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericTextbox_KeyPress);
+            this.HeightTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericTextboxKeyPress);
             // 
             // WidthTextbox
             // 
@@ -121,7 +121,7 @@ namespace Lab3
             this.WidthTextbox.Name = "WidthTextbox";
             this.WidthTextbox.Size = new System.Drawing.Size(85, 20);
             this.WidthTextbox.TabIndex = 5;
-            this.WidthTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericTextbox_KeyPress);
+            this.WidthTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericTextboxKeyPress);
             // 
             // LengthTextbox
             // 
@@ -129,7 +129,7 @@ namespace Lab3
             this.LengthTextbox.Name = "LengthTextbox";
             this.LengthTextbox.Size = new System.Drawing.Size(85, 20);
             this.LengthTextbox.TabIndex = 4;
-            this.LengthTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericTextbox_KeyPress);
+            this.LengthTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumericTextboxKeyPress);
             // 
             // RadiusLabel
             // 
