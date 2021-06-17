@@ -15,10 +15,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Lab3
 {
+    /// <summary>
+    /// Класс главная форма
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
-        /// Класс главная форма
+        /// Инициализация формы
         /// </summary>
         public MainForm()
         {
