@@ -7,6 +7,9 @@ using Model;
 
 namespace Lab3
 {
+    /// <summary>
+    /// Класс аргумента для передачи данныых
+    /// </summary>
     public class FigureEventArgs : EventArgs
     {
         /// <summary>
