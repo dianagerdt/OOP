@@ -141,10 +141,9 @@ namespace Lab3
                 {
                     _serializer.Serialize(fileStream, _figureList);
                 }
+                MessageBox.Show("Файл успешно сохранён.", "Сохранение завершено", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            MessageBox.Show("Файл успешно сохранён.", "Сохранение завершено",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>

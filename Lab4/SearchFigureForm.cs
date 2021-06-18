@@ -102,10 +102,16 @@ namespace Lab3
             }
             if (count == 0)
             {
-                MessageBox.Show("Таких фигур нет или вы ввели нечисловое значение." +
-                    "Будьте внимательны!");
+                MessageBox.Show("Таких фигур нет или вы ввели нечисловое значение.\n" +
+                    "Будьте внимательны!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
             }
-            Close();
+            TextBoxVolume.Clear();
+            CheckBoxParallelepiped.Checked = false;
+            CheckBoxPyramid.Checked = false;
+            CheckBoxBall.Checked = false;
+            CheckBoxVolume.Checked = false;
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System;
-using Model;
-using Model.Figures;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model.Figures;
+using Model;
 
-namespace Lab3
+namespace Model
 {
     /// <summary>
     /// Класс для генерации случайной фигуры
@@ -27,7 +27,7 @@ namespace Lab3
         /// Минимальное значение параметра
         /// </summary>
         private const int MINVALUE = 0;
-        
+
         /// <summary>
         /// Значение делителя 
         /// </summary>
@@ -57,21 +57,21 @@ namespace Lab3
             switch (figureType)
             {
                 case 0:
-                {
-                    return GetRandomParallelepiped();
-                }
+                    {
+                        return GetRandomParallelepiped();
+                    }
                 case 1:
-                {
-                    return GetRandomPyramid();
-                }
+                    {
+                        return GetRandomPyramid();
+                    }
                 case 2:
-                {
-                    return GetRandomBall();
-                }
+                    {
+                        return GetRandomBall();
+                    }
                 default:
-                {
-                    throw new ArgumentException("Тип фигуры отсутствует.");
-                }
+                    {
+                        throw new ArgumentException("Тип фигуры отсутствует.");
+                    }
             }
         }
 
