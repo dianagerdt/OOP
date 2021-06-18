@@ -257,6 +257,7 @@ namespace Lab3
             };
             actions.ForEach(SetValue);
             return newPyramid;
+
         }
 
         /// <summary>
@@ -312,11 +313,26 @@ namespace Lab3
         /// </summary>
         private void OkAddFigureButton_Click(object sender, EventArgs e)
         {
-            InsertData();
-            DialogResult = DialogResult.OK;
-            Close();
+            try
+            {
+                InsertData();
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            catch
+            {
+                MessageBox.Show("Введено некорректное значение, проверьте данные!\n" +
+                    "Вы должны ввести одно положительное десятичное число в каждое текстовое поле.",
+                    "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LengthTextbox.Clear();
+                WidthTextbox.Clear();
+                HeightTextbox.Clear();
+                RadiusTextbox.Clear();
+            }
         }
         
+        //TODO: textbox processing
         /// <summary>
         /// Обработка чисел на форме
         /// </summary>
@@ -324,9 +340,11 @@ namespace Lab3
         /// <param name="e"></param>
         private void NumericTextboxKeyPress(object sender, KeyPressEventArgs e)
         {
-            const string letterPattern = @"[^0-9,]";
+            /*const string letterPattern = @"[^0-9,]";
             e.Handled = TextBoxProcessing.
-                TextBoxProcessingKeyPress(letterPattern, e.KeyChar);
+                TextBoxProcessingKeyPress(letterPattern, e.KeyChar);*/
+            if (double.TryParse(((TextBox)sender).Text + e.KeyChar, out _)
+                || e.KeyChar == (char)Keys.Back) return;
         }
 
         /// <summary>

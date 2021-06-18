@@ -14,7 +14,7 @@ namespace Lab3
         /// </summary>
         /// <param name="pattern">Паттерн</param>
         /// <param name="e">Объект события</param>
-        public static bool TextBoxProcessingKeyPress(string pattern, char e)
+        /*public static bool TextBoxProcessingKeyPress(string pattern, char e)
         {
             var letterRegex = new Regex(pattern);
 
@@ -24,6 +24,6 @@ namespace Lab3
                 return false;
             }
             return true;
-        }
+        }*/
     }
 }

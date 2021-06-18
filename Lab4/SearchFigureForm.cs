@@ -48,11 +48,14 @@ namespace Lab3
         private void NumericTextboxKeyPress(object sender, 
             KeyPressEventArgs e)
         {
-            const string letterPattern = @"[^0-9,]";
+            /*const string letterPattern = @"[^0-9,]";
             e.Handled = TextBoxProcessing.TextBoxProcessingKeyPress
-                (letterPattern, e.KeyChar);
+                (letterPattern, e.KeyChar);*/
+            if (double.TryParse(((TextBox)sender).Text + e.KeyChar, out _)
+                || e.KeyChar == (char)Keys.Back) return;
+
         }
-        
+
         /// <summary>
         /// Обработчик изменения свойства Check объекта VolumeCheckBox
         /// </summary>
@@ -105,7 +108,8 @@ namespace Lab3
             }
             if (count == 0)
             {
-                MessageBox.Show("Таких фигур нет! Уж извините.");
+                MessageBox.Show("Таких фигур нет или вы ввели нечисловое значение." +
+                    "Будьте внимательны!");
             }
             Close();
         }
