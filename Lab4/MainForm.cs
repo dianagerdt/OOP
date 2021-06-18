@@ -163,7 +163,7 @@ namespace Lab3
         private void SearchFigureButton_Click(object sender, EventArgs e)
         {
             var figureSearch = new SearchFigureForm(_figureList);
-            figureSearch.SendDataFromFormEvent += AddSearchTransportEvent;
+            figureSearch.SendDataFromFormEvent += AddSearchFigureEvent;
             figureSearch.Show();
         }
 
@@ -172,7 +172,7 @@ namespace Lab3
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void AddSearchTransportEvent(object sender, FigureEventArgs e)
+        public void AddSearchFigureEvent(object sender, FigureEventArgs e)
         {
             _listForSearch.Add(e.SendingFigure);
             DataGridFigureTools.CreateTable(_listForSearch, DataFigureView);
