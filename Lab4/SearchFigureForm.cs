@@ -102,7 +102,7 @@ namespace Lab3
 
 
             }
-            TextBoxVolume.Clear();
+            Close();
             CheckBoxParallelepiped.Checked = false;
             CheckBoxPyramid.Checked = false;
             CheckBoxBall.Checked = false;
