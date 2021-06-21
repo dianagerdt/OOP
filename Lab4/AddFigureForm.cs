@@ -111,7 +111,6 @@ namespace Lab3
             }
         }
 
-        //TODO: Несоответствие комментариев передаваемому аргументу +
         /// <summary>
         /// Установка видимых TextBox в зависимости
         /// от выбранной фигуры
@@ -331,8 +330,7 @@ namespace Lab3
                 RadiusTextbox.Clear();
             }
         }
-        
-        //TODO: textbox processing
+
         /// <summary>
         /// Обработка чисел на форме
         /// </summary>
@@ -340,9 +338,6 @@ namespace Lab3
         /// <param name="e"></param>
         private void NumericTextboxKeyPress(object sender, KeyPressEventArgs e)
         {
-            /*const string letterPattern = @"[^0-9,]";
-            e.Handled = TextBoxProcessing.
-                TextBoxProcessingKeyPress(letterPattern, e.KeyChar);*/
             if (double.TryParse(((TextBox)sender).Text + e.KeyChar, out _)
                 || e.KeyChar == (char)Keys.Back) return;
         }

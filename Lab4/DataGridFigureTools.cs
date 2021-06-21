@@ -9,7 +9,6 @@ using System.ComponentModel;
 
 namespace Lab3
 {
-    //TODO: naming +
     /// <summary>
     /// Класс для создания таблицы желаемого формата
     /// </summary>

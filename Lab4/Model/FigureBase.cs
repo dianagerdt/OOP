@@ -26,7 +26,6 @@ namespace Model
         /// </summary>
         public abstract double Volume { get; }
 
-        //TODO: NaN
         /// <summary>
         /// Проверка числа
         /// </summary>

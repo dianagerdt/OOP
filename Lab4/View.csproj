@@ -70,7 +70,6 @@
     <Compile Include="SearchFigureForm.Designer.cs">
       <DependentUpon>SearchFigureForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TextBoxProcessing.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

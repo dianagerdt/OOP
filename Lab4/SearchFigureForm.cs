@@ -33,7 +33,6 @@ namespace Lab3
             TextBoxVolume.Enabled = false;
         }
 
-        //TODO:
         /// <summary>
         /// Обработка чисел на форме
         /// </summary>
@@ -42,12 +41,8 @@ namespace Lab3
         private void NumericTextboxKeyPress(object sender, 
             KeyPressEventArgs e)
         {
-            /*const string letterPattern = @"[^0-9,]";
-            e.Handled = TextBoxProcessing.TextBoxProcessingKeyPress
-                (letterPattern, e.KeyChar);*/
             if (double.TryParse(((TextBox)sender).Text + e.KeyChar, out _)
                 || e.KeyChar == (char)Keys.Back) return;
-
         }
 
         /// <summary>
